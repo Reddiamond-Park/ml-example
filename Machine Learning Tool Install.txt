@@ -1,0 +1,94 @@
+설치순서
+
+[설치 파일]
+1. C++ Livrary
+	VC_redist.x64.exe  
+	
+2. NVIDIA graphic driver
+	설치전 이전 graphic driver 삭제
+	517.40-desktop-win10-win11-64bit-international-nsd-dch-whql.exe 
+	
+3. Anaconda(Jupyter 포함)
+	Anaconda3-2022.05-Windows-x86_64.exe
+
+4. CUDA                            
+	cuda_11.7.1_516.94_windows.exe
+
+5. cuDNN 	
+	cudnn-windows-x86_64-8.5.0.96_cuda11-archive.zip                
+
+
+[설치 순서]
+
+1. VC_redist.x64
+
+2. NVIDIA driver
+
+3. Anaconda(Jupyter Notebook 포함)
+
+4. CUDA
+5. cuDNN
+   - 설치 파일 압축해제 
+   - cudnn-windows-x86_64-8.5.0.96_cuda11-archive>bin
+     cudnn-windows-x86_64-8.5.0.96_cuda11-archive>include
+     cudnn-windows-x86_64-8.5.0.96_cuda11-archive>lib 아래 파일들을 CUDA의 똑같은 폴더에 복사
+	 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\bin
+	 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\include
+	 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\lib\x64
+	 
+6. conda python 3.7 환경 생성
+   [Anaconda Navigator에서 생성]
+   - Anaconda Navigator 실행
+   - Environments -> Create
+   
+   [Widows PowerShell에서 생성] - error 발생
+    - 명령어   
+		> conda create -n pyenv37 python=3.7   
+   
+    - 설치한 환경 활성화
+		> conda activate pyenv37
+	
+	- 설치한 환경 비활성화
+		> conda deactivate
+	
+	- error 발생시 conda version upgrade
+		> conda update conda	
+	
+	- 설치한 환경 삭제
+		> conda env remove -n pyenv37
+	
+	- 실행환경 파일로부터 실행환경 생성
+		> conda env create -f environment.yml
+	
+	- 실행환경 공유(예: pyenv37 실행환경을 내보낼 경우)
+		C:\users\ybpark\conda activate pyenv37
+		(pyenv37) C:\users\ybpark>
+		(pyenv37) C:\users\ybpark>conda env export > environment.yml
+		이떄 environment.yml 파일은 C:\users\ybpark 폴더에 생성됨 
+	
+7. Tenorflow 설치
+	- PIP로 설치
+	  (pyenv37) C:\users\ybpark> pip install tensorflow
+	- conda로 설치
+	  (pyenv37) C:\users\ybpark> conda install tensorflow
+	
+	
+8. Jupyter 작업폴더 변경
+    [Jupyter 실행 아이콘 속성 변경]
+	 - 실행 아이콘 위치 
+		C:\Users\ybpark\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Anaconda3 (64-bit)  	
+	 - 변경값: 바로가기 대상값 중
+		 "%USERPROFILE%/" => "변경할 폴더명"
+
+9. VSCODE에서 Anaconda 사용
+    - VSCODE에서 Ctrl+ Shift + P 
+	- Python: Select interpreter 선택
+	- Python 3.7.13 ("pyenv37") 선택
+
+10. VSCODE에서 Jupyter 사용	
+    - Juypter Extension 설치
+    - VSCODE에서 Ctrl+ Shift + P 
+	- Jupyter: Create New Jupyter Notebook
+	
+	
+	
