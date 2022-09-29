@@ -1,8 +1,7 @@
 설치순서
 
 [설치 파일]
-1. C++ Livrary
-	VC_redist.x64.exe  
+1. MS Visual Studio Community version
 	
 2. NVIDIA graphic driver
 	설치전 이전 graphic driver 삭제
@@ -15,18 +14,19 @@
 	cuda_11.7.1_516.94_windows.exe
 
 5. cuDNN 	
-	cudnn-windows-x86_64-8.5.0.96_cuda11-archive.zip                
+	cudnn-windows-x86_64-8.5.0.96_cuda11-archive.zip     
 
 
 [설치 순서]
 
-1. VC_redist.x64
+1. MS Visual Studio Community version
 
 2. NVIDIA driver
 
 3. Anaconda(Jupyter Notebook 포함)
 
 4. CUDA
+
 5. cuDNN
    - 설치 파일 압축해제 
    - cudnn-windows-x86_64-8.5.0.96_cuda11-archive>bin
@@ -35,6 +35,8 @@
 	 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\bin
 	 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\include
 	 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.7\lib\x64
+	 
+   - 위 3개 경로 환경변수 PATH에 추가
 	 
 6. conda python 3.7 환경 생성
    [Anaconda Navigator에서 생성]
@@ -69,9 +71,10 @@
 7. Tenorflow 설치
 	- PIP로 설치
 	  (pyenv37) C:\users\ybpark> pip install tensorflow
+	  (pyenv37) C:\users\ybpark> pip install tensorflow_gpu
 	- conda로 설치
 	  (pyenv37) C:\users\ybpark> conda install tensorflow
-	
+	  (pyenv37) C:\users\ybpark> conda install tensorflow_gpu	
 	
 8. Jupyter 작업폴더 변경
     [Jupyter 실행 아이콘 속성 변경]
